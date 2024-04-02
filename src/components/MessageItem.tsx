@@ -11,6 +11,20 @@ interface MessageItemProps {
   currentMessage: string;
 }
 
+/**
+ * Using React.memo for the MessageItem component is indeed a good practice,
+ * especially in scenarios where the component might re-render frequently due to changes in the parent component
+ * that do not affect the individual MessageItem components.
+ * React.memo is a higher-order component that memoizes your component,
+ * meaning it will only re-render if its props change.
+ *
+ * Given the dynamic nature of the MessageItem component,
+ * where each item might change independently of the others
+ * (such as editing one message while others remain unchanged),
+ * wrapping it in React.memo can prevent unnecessary re-renders,
+ * improving performance.
+ * */
+
 const MessageItem = memo(
   ({
     message,
